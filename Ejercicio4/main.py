@@ -1,4 +1,5 @@
-from reloj import *
+from run import *
+
  
 if __name__ == "__main__":
-    reloj()
+    main()
