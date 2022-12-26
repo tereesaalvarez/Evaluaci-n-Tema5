@@ -1,6 +1,3 @@
-
-
-
 import pickle
 from io import open
 
@@ -15,3 +12,28 @@ class Personaje:
     def __str__(self):
         return "Nombre: {} Vida: {} Ataque: {} Defensa: {} Alcance: {}".format(self.nombre, self.vida, self.ataque, self.defensa, self.alcance)
 
+class Gestor:
+    def __init__(self):
+        self.listaPersonajes = []
+
+    def agregarPersonaje(self, personaje):
+        self.listaPersonajes.append(personaje)
+
+    def mostrarPersonajes(self):
+        for personaje in self.listaPersonajes:
+            print(personaje)
+
+    def borrarPersonaje(self, nombre):
+        for personaje in self.listaPersonajes:
+            if personaje.nombre == nombre:
+                self.listaPersonajes.remove(personaje)
+
+    def guardarPersonajes(self):
+        fichero = open("personajes.pckl", "wb")
+        pickle.dump(self.listaPersonajes, fichero)
+        fichero.close()
+
+    def cargarPersonajes(self):
+        fichero = open("personajes.pckl", "rb")
+        self.listaPersonajes = pickle.load(fichero)
+        fichero.close()
