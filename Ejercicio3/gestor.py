@@ -16,8 +16,9 @@ class Gestor:
     def __init__(self):
         self.listaPersonajes = []
 
-    def agregarPersonaje(self, personaje):
+    def agregarPersonaje(self, personaje,vida, ataque, defensa, alcance):
         self.listaPersonajes.append(personaje)
+
 
     def mostrarPersonajes(self):
         for personaje in self.listaPersonajes:
@@ -25,7 +26,7 @@ class Gestor:
 
     def borrarPersonaje(self, nombre):
         for personaje in self.listaPersonajes:
-            if personaje.nombre == nombre:
+            if Personaje.self.nombre == nombre:
                 self.listaPersonajes.remove(personaje)
 
     def guardarPersonajes(self):
